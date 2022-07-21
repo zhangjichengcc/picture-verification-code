@@ -5,14 +5,39 @@
   "main": "lib/main.cjs.js",
   "module": "lib/main.esm.js",
   "jsnext:main": "lib/main.esm.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhangjichengcc/picture-verification-code"
   },
-  "author": "zhangjicheng",
+  "bugs": {
+    "url": "https://github.com/zhangjichengcc/picture-verification-code/issues"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "rollup -c",
+    "build": "set TERSER=1 && rollup -c"
+  },
+  "files": [
+    "/lib",
+    "main.d.ts",
+    "/README.md"
+  ],
+  "typings": "./main.d.ts",
+  "author": {
+    "name": "张吉成",
+    "email": "zhangjichengcc@163.com",
+    "url": "https://github.com/zhangjichengcc/picture-verification-code"
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
     "@types/node": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
     "rollup": "^2.77.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",

@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-21 17:13:50
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-21 17:26:33
+ * @LastEditTime: 2022-07-21 18:14:08
  * @FilePath: \picture-verification-code\rollup.config.ts
  */
 import babel from 'rollup-plugin-babel';
@@ -39,7 +39,7 @@ const plugins = [
 
 
 export default {
-  input: 'src/index.ts',
+  input: 'src/main.ts',
   output: [
     {
       file: packageJSON.main,

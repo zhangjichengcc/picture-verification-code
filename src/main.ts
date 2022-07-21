@@ -90,7 +90,7 @@ function randomNum(min: number, max: number) {
  * @returns 随机颜色
  */
 function randomColor(min: number, max: number) {
-  let r = randomNum(min, max),
+  const r = randomNum(min, max),
     g = randomNum(min, max),
     b = randomNum(min, max);
   return "rgb(" + r + ", " + g + ", " + b + ")";
@@ -101,7 +101,7 @@ function randomColor(min: number, max: number) {
  * @param length 验证码长度
  * @returns 验证码字符串
  */
-function refreshCode(length?: number) {
+export function refreshCode(length?: number) {
   length = length || 4;
   const big: string[] = [], small: string[] = [];
   let number: string[] = [];
@@ -115,3 +115,5 @@ function refreshCode(length?: number) {
   const strArr = [...number, ...big, ...small];
   return new Array(length).fill('').map(() => strArr[randomNum(0, strArr.length - 1)]).join('');
 }
+
+export default VerificationCode;
