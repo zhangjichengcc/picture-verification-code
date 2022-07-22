@@ -1,6 +1,6 @@
 {
   "name": "picture-verification-code",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Picture verification code",
   "main": "lib/main.cjs.js",
   "module": "lib/main.esm.js",
@@ -19,9 +19,16 @@
     "start": "rollup -c",
     "build": "set TERSER=1 && rollup -c"
   },
+  "keywords": [
+    "Verification Code",
+    "code",
+    "picture",
+    "verification",
+    "javascript",
+    "canvas"
+  ],
   "files": [
     "/lib",
-    "/src",
     "main.d.ts",
     "/README.md"
   ],
