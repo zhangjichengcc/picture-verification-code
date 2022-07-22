@@ -2,7 +2,7 @@
  * @Author: zhangjicheng
  * @Date: 2022-07-21 18:49:32
  * @LastEditors: zhangjicheng
- * @LastEditTime: 2022-07-21 19:12:10
+ * @LastEditTime: 2022-07-22 14:50:50
  * @FilePath: \picture-verification-code\main.d.ts
  */
 
@@ -35,15 +35,26 @@ declare class VerificationCode {
    */
   setBgImg(img: CanvasImageSource): this;
   /**
+   * 设置图片验证码宽度
+   * @param width 
+   */
+  setWidth(width: number): this;
+  /**
+   * 设置图片验证码高度
+   * @param height 
+   */
+  setHeight(height: number): this;
+  /**
    * 生成图片验证码
+   * @param code 
    */
   render: (code: string) => string;
 }
 
 /**
- * 获取随机验证码
+ * 生成随机验证码
  * @param length 验证码长度 默认 4位
  */
-export declare function refreshCode(length?: number): string;
+export declare function createCode(length?: number): string;
 
 export default VerificationCode;

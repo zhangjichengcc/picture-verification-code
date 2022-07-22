@@ -21,6 +21,7 @@
   },
   "files": [
     "/lib",
+    "/src",
     "main.d.ts",
     "/README.md"
   ],

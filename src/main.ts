@@ -16,14 +16,13 @@ class VerificationCode {
     const [ width = 100, height = 40 ] = props;
     this.width = width;
     this.height = height;
-    this.size = Math.min(16 , height - 14);
+    this.size = 16;
     this.code = [];
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
-    this.canvas.style.cursor = "pointer";
-    this.canvas.innerHTML = "<span style='color: red'>你的浏览器不支持canvas</span>";
+    
     // 设置默认背景色，随机背景
     this.ctx.fillStyle = randomColor(180, 240);
     this.ctx.fillRect(0, 0, this.width, this.height);
@@ -36,6 +35,17 @@ class VerificationCode {
 
   setBgImg(img: CanvasImageSource) {
     this.bgImage = img;
+    return this;
+  }
+
+  setWidth(width: number) {
+    this.width = width;
+    return this;
+  }
+
+  setHeight(height: number) {
+    this.height = height;
+    return this;
   }
 
   render(code: string) {
@@ -43,9 +53,11 @@ class VerificationCode {
     // 先清空画布
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    this.code = code.split('');
+    this.code = code ? code.split('') : [];
+    this.size = Math.min(16 , this.height - 14);
     this.width = Math.max(this.width, (this.size + 5) * this.code.length);
     this.canvas.width = this.width;
+    this.canvas.height = this.height;
 
     // 设置默认背景色，随机背景
     this.ctx.fillStyle = this.bgColor || randomColor(180, 240);
@@ -53,6 +65,10 @@ class VerificationCode {
 
     // 绘制背景图片
     if (this.bgImage) this.ctx.drawImage(this.bgImage, 0, 0, this.width, this.height);
+
+    // 不兼容canvas
+    this.canvas.style.cursor = "pointer";
+    this.canvas.innerHTML = "<span style='color: red'>你的浏览器不支持canvas</span>";
 
     ctx.textBaseline = "middle";
     const widthSpace = this.width / (this.code.length + 1);
@@ -97,11 +113,11 @@ function randomColor(min: number, max: number) {
 }
 
 /**
- * 获取随机验证码
+ * 生成随机验证码
  * @param length 验证码长度
  * @returns 验证码字符串
  */
-export function refreshCode(length?: number) {
+export function createCode(length?: number) {
   length = length || 4;
   const big: string[] = [], small: string[] = [];
   let number: string[] = [];
